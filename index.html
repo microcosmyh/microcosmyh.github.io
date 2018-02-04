@@ -370,8 +370,8 @@
 <li>比较并交换（Compare-and-Swap）</li>
 <li>加载链接/条件存储（Load-Linked/Store-Conditional，LL/SC）</li>
 </ul>
-<h3 id="CAS（Compare-and-Swap）指令"><a href="#CAS（Compare-and-Swap）指令" class="headerlink" title="CAS（Compare-and-Swap）指令"></a><font color="red">CAS（Compare-and-Swap）指令</font></h3><p>CAS 指令需要3个操作数，分别是-内存位置 V（在Java中可以简单理解为变量的内存地址）、 旧的预期值 A（进行运算前从内存中读取的值）、拟写入的值 B（运算得到的值）</p>
-<p>当且仅当 V==A 时， 才执行V = B （将B赋给V）,否则将不做任何操作。</p>
+<h3 id="CAS（Compare-and-Swap）指令"><a href="#CAS（Compare-and-Swap）指令" class="headerlink" title="CAS（Compare-and-Swap）指令"></a><font color="red">CAS（Compare-and-Swap）指令</font></h3><p>CAS 指令需要 3 个操作数，分别是-内存位置 V（在 Java 中可以简单理解为变量的内存地址）、 旧的预期值 A（进行运算前从内存中读取的值）、拟写入的值 B（运算得到的值）</p>
+<p>当且仅当 V==A 时， 才执行 V = B （将 B 赋给 V），否则将不做任何操作。</p>
 <p>模拟 CAS 操作：</p>
 <pre><code>public class CompareAndSwap{
 
@@ -409,30 +409,28 @@
 <p>JDK1.5 后，Java 程序中才可以使用 CAS 操作，该操作由 sun.misc.Unsafe 类里面的<code>compareAndSwapInt()</code> 和 <code>compareAndSwapLong()</code> 等几个方法包装提供。但是 Unsafe 类不是提供给用户程序调用的 （<code>Unsafe.getUnsafe()</code> 代码限制了只有启动类加载器(Bootstrap ClassLoader)加载的 Class 才能访问） 因此，如果不使用反射，只能通过其他的 java API 来间接使用。 比如 java.util.concurrent.atomic 中的原子类。其中整数原子类有 <code>compareAndSet()</code> 和 <code>getAndIncrement()</code> 方法都是用了 Unsafe 类的 CAS 操作。</p>
 <p>现在来看一段代码，测试原子类：</p>
 <pre><code>public class TestAtomicDemo {
-        public static void main(String[] args) {
+    public static void main(String[] args) {
             AtomicDemo atomicDemo = new AtomicDemo();
-
           for (int i = 0; i &lt; 10; i++) {
                 new Thread(atomicDemo).start();
           }
-
     }
 }
 
 class AtomicDemo implements Runnable {
 
-     //private volatile int serialNumber = 0;
-     private static AtomicInteger serialNumber = new AtomicInteger(0);
+    //private volatile int serialNumber = 0;
+    private static AtomicInteger serialNumber = new AtomicInteger(0);
 
-       @Override
+    @Override
     public void run() {
         try {
             Thread.sleep(200);
            } catch (InterruptedException e) {
                 e.printStackTrace();
         }
-    System.out.println(Thread.currentThread().getName()+ &quot;--&quot; +getSerialNumber());
-   }
+        System.out.println(Thread.currentThread().getName()+ &quot;--&quot; +getSerialNumber());
+       }
 
    public int getSerialNumber() {
       //i++为复合操作，使用原子类保证操作原子性
@@ -452,7 +450,7 @@ Thread-1--0
 Thread-8--0
 Thread-6--7
 </code></pre><p>能够得到正确输出是因为 <code>getAndIncrement()</code> 这个方法保证了原子性。</p>
-<h3 id="CAS存在的问题："><a href="#CAS存在的问题：" class="headerlink" title="CAS存在的问题："></a><font color="red">CAS存在的问题：</font></h3><ol>
+<h3 id="CAS存在的问题"><a href="#CAS存在的问题" class="headerlink" title="CAS存在的问题"></a><font color="red">CAS存在的问题</font></h3><ol>
 <li><p>它使调用者处理竞争问题（重试、回退、停止），而在锁中能自动处理竞争问题（获得锁之前一直阻塞）</p>
 </li>
 <li><p>循环时间长导致开销增大，如果程序中的 CAS 操作不断重试（自旋），会使得 CPU 消耗过多的执行资源。</p>
