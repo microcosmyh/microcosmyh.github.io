@@ -83,7 +83,7 @@
 <meta name="keywords" content="Java 高并发">
 <meta property="og:type" content="article">
 <meta property="og:title" content="关于 CAS，这些知识必须了解">
-<meta property="og:url" content="http://yoursite.com/2018/01/13/关于 CAS，这些知识必须了解/index.html">
+<meta property="og:url" content="http://microcosmyh.github.io/2018/01/13/关于 CAS，这些知识必须了解/index.html">
 <meta property="og:site_name" content="microcosmyh&#39;s Blog">
 <meta property="og:description" content="阻塞同步与非阻塞同步阻塞同步：互斥同步最主要的问题是进行线程阻塞和唤醒所带来的性能问题（主要是上下文切换），这种同步也称为阻塞同步（Blocking Synchronization）。 互斥同步是一种悲观的并发策略，总是认为只要不去做正确的同步措施，那就肯定会出现问题，无论共享数据是否真的会出现竞争，它都要进行加锁、用户态核心转换、维护锁计数器和检查是否有被阻塞的线程需要唤醒等操作。  实际上 J">
 <meta property="og:locale" content="zh-Hans">
@@ -120,7 +120,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/01/13/关于 CAS，这些知识必须了解/"/>
+  <link rel="canonical" href="http://microcosmyh.github.io/2018/01/13/关于 CAS，这些知识必须了解/"/>
 
 
 
@@ -253,7 +253,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/13/关于 CAS，这些知识必须了解/">
+    <link itemprop="mainEntityOfPage" href="http://microcosmyh.github.io/2018/01/13/关于 CAS，这些知识必须了解/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Yang Hao">
@@ -509,17 +509,17 @@ Thread-6--7
 <div class="my_post_copyright">
   <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
   
-  <!-- JS�� sweetalert ���޸�·�� -->
+  <!-- JS库 sweetalert 可修改路径 -->
   <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <p><span>���ı���:</span><a href="/2018/01/13/关于 CAS，这些知识必须了解/">关于 CAS，这些知识必须了解</a></p>
-  <p><span>��������:</span><a href="/" title="���� Yang Hao �ĸ��˲���">Yang Hao</a></p>
-  <p><span>����ʱ��:</span>2018��01��13�� - 11:01</p>
-  <p><span>������:</span>2018��02��04�� - 14:02</p>
-  <p><span>ԭʼ����:</span><a href="/2018/01/13/关于 CAS，这些知识必须了解/" title="关于 CAS，这些知识必须了解">http://yoursite.com/2018/01/13/关于 CAS，这些知识必须了解/</a>
-    <span class="copy-path"  title="���������������"><i class="fa fa-clipboard" data-clipboard-text="http://yoursite.com/2018/01/13/关于 CAS，这些知识必须了解/"  aria-label="���Ƴɹ���"></i></span>
+  <p><span>本文标题:</span><a href="/2018/01/13/关于 CAS，这些知识必须了解/">关于 CAS，这些知识必须了解</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 Yang Hao 的个人博客">Yang Hao</a></p>
+  <p><span>发布时间:</span>2018年01月13日 - 11:01</p>
+  <p><span>最后更新:</span>2018年02月04日 - 14:02</p>
+  <p><span>原始链接:</span><a href="/2018/01/13/关于 CAS，这些知识必须了解/" title="关于 CAS，这些知识必须了解">http://microcosmyh.github.io/2018/01/13/关于 CAS，这些知识必须了解/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://microcosmyh.github.io/2018/01/13/关于 CAS，这些知识必须了解/"  aria-label="复制成功！"></i></span>
   </p>
-  <p><span>���Э��:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">����-����ҵ��ʹ��-��ֹ���� 4.0 ����</a> ת���뱣��ԭ�����Ӽ����ߡ�</p>  
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
 </div>
 <script> 
     var clipboard = new Clipboard('.fa-clipboard');
@@ -527,7 +527,7 @@ Thread-6--7
       clipboard.on('success', function(){
         swal({   
           title: "",   
-          text: '���Ƴɹ�',
+          text: '复制成功',
           icon: "success", 
           showConfirmButton: true
           });
